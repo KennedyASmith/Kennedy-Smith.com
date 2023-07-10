@@ -48,125 +48,25 @@
 
         <div class="portfolio">
             <div class="container">
-                <h1>Design Projects</h1>
-                <div class="slider center mt-3">
-                    <div class="slide">
-                        <div class="item" data-project="project1">
-                            <img src="images/portfolio_img.png" draggable="false" alt="">
-                            <p>
-                                <span class="projectName">Project Name 1 </span>
-                                <span class="learn-more">Look Closer &rarr;</span>
-                            </p>
-                        </div>
-                    </div>
-                    <div class="slide">
-                        <div class="item" data-project="project1">
-                            <img src="images/portfolio_img.png" draggable="false" alt="">
-                            <p>Project Name 2</p>
-                        </div>
-                    </div>
-                    <div class="slide" data-project="project1">
-                        <div class="item">
-                            <img src="images/portfolio_img.png" draggable="false" alt="">
-                            <p>Project Name 3</p>
-                        </div>
-                    </div>
-                    <div class="slide" data-project="project1">
-                        <div class="item">
-                            <img src="images/portfolio_img.png" draggable="false" alt="">
-                            <p>Project Name 4</p>
-                        </div>
-                    </div>
-                    <div class="slide" data-project="project1">
-                        <div class="item">
-                            <img src="images/portfolio_img.png" draggable="false" alt="">
-                            <p>Project Name 5</p>
-                        </div>
-                    </div>
-                    <div class="slide" data-project="project1">
-                        <div class="item">
-                            <img src="images/portfolio_img.png" draggable="false" alt="">
-                            <p>Project Name 6</p>
-                        </div>
-                    </div>
-                    <div class="slide" data-project="project1">
-                        <div class="item">
-                            <img src="images/portfolio_img.png" draggable="false" alt="">
-                            <p>Project Name</p>
-                        </div>
-                    </div>
+                <h1 class="slideFromAbove">Design Projects</h1>
+                <div class="slider center mt-3 slideFromAbove">
+
                 </div>
 
                 <div class="divider" style="height: 8rem;"></div>
 
-                <div class="row">
-                    <div class="col-lg-3">
-                        <div class="item mb-item p-0">
-                            <img src="images/portfolio_img.png" draggable="false" alt="">
-                            <p>Project Name</p>
-                        </div>
-                    </div>
-                    <div class="col-lg-3">
-                        <div class="item mb-item p-0">
-                            <img src="images/portfolio_img.png" draggable="false" alt="">
-                            <p>Project Name</p>
-                        </div>
-                    </div>
-                    <div class="col-lg-3">
-                        <div class="item mb-item p-0">
-                            <img src="images/portfolio_img.png" draggable="false" alt="">
-                            <p>Project Name</p>
-                        </div>
-                    </div>
-                    <div class="col-lg-3">
-                        <div class="item mb-item p-0">
-                            <img src="images/portfolio_img.png" draggable="false" alt="">
-                            <p>Project Name</p>
-                        </div>
-                    </div>
+                <div class="row" id="portfolio-row-1">
+                    <!-- Automatically populated -->
                 </div>
 
-                <div class="row mb-mt-5">
-                    <div class="col-lg-3">
-                        <div class="item mb-item p-0">
-                            <img src="images/portfolio_img.png" draggable="false" alt="">
-                            <p>Project Name</p>
-                        </div>
-                    </div>
-                    <div class="col-lg-3">
-                        <div class="item mb-item p-0">
-                            <img src="images/portfolio_img.png" draggable="false" alt="">
-                            <p>Project Name</p>
-                        </div>
-                    </div>
-                    <div class="col-lg-3">
-                        <div class="item mb-item p-0">
-                            <img src="images/portfolio_img.png" draggable="false" alt="">
-                            <p>Project Name</p>
-                        </div>
-                    </div>
-                    <div class="col-lg-3">
-                        <div class="item mb-item p-0">
-                            <img src="images/portfolio_img.png" draggable="false" alt="">
-                            <p>Project Name</p>
-                        </div>
-                    </div>
+                <div class="row mb-mt-5" id="portfolio-row-2">
+
+                    <!-- Automatically populated -->
                 </div>
 
-                <!-- Modal -->
-                <div class="modal fade" id="portfolioModal" tabindex="-1" role="dialog" aria-labelledby="portfolioModalLabel" aria-hidden="true">
-                    <div class="modal-dialog modal-lg" role="document">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="portfolioModalLabel"><p id="projectName"></p></h5>
-                                <button type="button" class="btn-close btn-close-white close" data-dismiss="modal" aria-label="Close" id="closeButton">
-                                </button>
-                            </div>
-                            <div class="modal-body">
-                                <div id="projectImage"></div>
-                            </div>
-                        </div>
-                    </div>
+                <div class="row mb-mt-5" id="portfolio-row-3">
+
+                    <!-- Automatically populated -->
                 </div>
             </div>
 
@@ -174,61 +74,9 @@
         </div>
         <!-- Slick JS -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js" integrity="sha512-XtmMtDEcNz2j7ekrtHvOVR4iwwaD6o/FUJe6+Zq+HgcCsk3kj4uSQQR8weQ2QVj1o0Pk6PwYLohm206ZzNfubg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-        <script type="text/javascript">
-            $('.center').slick({
-                centerMode: true,
-                centerPadding: '60px',
-                slidesToShow: 3,
-                cssEase: 'linear',
-                dots: true,
-                responsive: [
-                    {
-                        breakpoint: 768,
-                        settings: {
-                            arrows: true,
-                            centerMode: false,
-                            centerPadding: '40px',
-                            slidesToShow: 3
-                        }
-                    },
-                    {
-                        breakpoint: 480,
-                        settings: {
-                            arrows: true,
-                            centerMode: true,
-                            centerPadding: '40px',
-                            slidesToShow: 1
-                        }
-                    }
-                ]
-            });
-             // Get the close button element
-            const closeButton = document.getElementById('closeButton');
 
-            // Add a click event listener to the close button
-            closeButton.addEventListener('click', function () {
-                // Use jQuery to close the modal
-                $('#portfolioModal').modal('hide');
-            });
-
-            document.addEventListener("DOMContentLoaded", function() {
-                const items = document.querySelectorAll(".item");
-                const projectImage = document.getElementById("projectImage");
-                const projectName = document.getElementById("projectName");
-                items.forEach(item => {
-                  item.addEventListener("click", function() {
-                    const project = this.getAttribute("data-project");
-                    const projectNameText = this.querySelector(".projectName").textContent;
-                    const projectImageSrc = this.querySelector("img").getAttribute("src");
-
-                    projectName.textContent = projectNameText;
-                    projectImage.innerHTML = `<img src="${projectImageSrc}" alt="${projectNameText}"  style="width: 100%;">`;
-
-                    $("#portfolioModal").modal("show"); // Show the modal using jQuery
-                  });
-                });
-            });
-        </script>
+        <!-- Populator Script -->
+        <script src="portfolio_populator.js"></script>
 
         <!-- Bootstrap JS -->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>

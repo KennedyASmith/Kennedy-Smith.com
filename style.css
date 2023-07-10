@@ -180,22 +180,46 @@ a {
     font-weight: 400;
     color: #FAF9F6;
     letter-spacing: .2px;
-    /* background-color: #000;*/
     padding: 8px 0px 8px 14px;
     margin: 0px auto;
     backdrop-filter: blur(8px); /* Adjust the blur intensity as needed */
     background-color: rgba(40, 169, 224, 0.1); /* Adjust the background color and transparency as needed */
 }
 
-.learn-more {
-    float: right;
-    margin-right: 10px;
-    color: gray;
-    cursor: pointer;
+/* Track fade in animation */
+/* CSS for fade-in effect */
+@keyframes slideInFromAbove {
+  from {
+    opacity: 0;
+    transform: translateY(-50px);
   }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 
+/* CSS for hidden slider */
+.slideFromAbove {
+  visibility: hidden;
+  opacity: 0;
+}
 
-.portfolio .item::after {
+.slideFromAbove.show {
+  visibility: visible;
+  animation: slideInFromAbove 2s ease forwards;
+}
+
+.slick-slide .learn-more {
+  float: right;
+  margin-right: 10px;
+  color: gray;
+  cursor: pointer;
+}
+
+/* Animated blue line */
+.slide .learn-more::after,
+ .portfolio .item::after{
     content: '';
     position: absolute;
     left: 50%;
@@ -207,13 +231,38 @@ a {
     transition: width 0.3s ease;
 }
 
+.slide:hover .learn-more::after,
+.slide.slick-current:hover .learn-more::after,
 .portfolio .item:hover::after {
-    width: 100%;
+  width: 100%;
 }
 
+.learn-more {
+    float: right;
+    margin-right: 10px;
+    color: gray;
+    cursor: pointer;
+  }
 
-.learn-more:hover::after {
-    width: 100%;
+/* CSS for fade-in effect */
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.row.fade-in {
+  opacity: 0;
+  animation: fade-in 2s ease forwards;
+}
+
+.row {
+    opacity: 0;
 }
 
 .slick-slide {
@@ -221,6 +270,11 @@ a {
 		transition:opacity 0.5s ease-out;
         cursor: pointer;
 	}
+
+.slick-slide {
+  position: relative;
+  overflow: hidden;
+}
 
 .slick-center {
     opacity: 1;
