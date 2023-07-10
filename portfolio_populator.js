@@ -1,58 +1,8 @@
 
-// Fetch the portfolio entries from the JSON file
-fetch('portfolio_entries.json')
-    .then(response => response.json())
-    .then(data => {
-        // Set the value of portfolioEntries
-        const portfolioEntries = data;
 
-        // Call the populateSlides and populateRows functions
-        populateSlides(portfolioEntries);
-        populateRows(portfolioEntries);
-
-        // Add the script after the portfolio entries are populated
-        const script = document.createElement('script');
-        script.type = 'text/javascript';
-        script.innerHTML = `
-            $('.center').slick({
-                centerMode: true,
-                centerPadding: '60px',
-                slidesToShow: 3,
-                dots: true,
-                responsive: [
-                    {
-                        breakpoint: 768,
-                        settings: {
-                            arrows: true,
-                            centerMode: false,
-                            centerPadding: '40px',
-                            slidesToShow: 3
-                        }
-                    },
-                    {
-                        breakpoint: 480,
-                        settings: {
-                            arrows: true,
-                            centerMode: true,
-                            centerPadding: '40px',
-                            slidesToShow: 1
-                        }
-                    }
-                ]
-            });
-        `;
-
-        // Append the script to the document body
-        document.body.appendChild(script);
-
-        setTimeout(function() {
-          const sliders = document.querySelectorAll('.slideFromAbove');
-          sliders.forEach(slider => {
-            slider.classList.add('show');
-          });
-        }, 500);
-    })
-    .catch(error => console.error('Error fetching portfolio entries:', error));
+// Set the value of portfolioEntries
+let portfolioEntries = null;
+let initialized = true;
 
 // Function to populate the portfolio slides
 function populateSlides(portfolioEntries) {
@@ -214,12 +164,21 @@ function openModal(projectName, modalContent) {
 // Function to check if an element is in the viewport
 function isInViewport(element) {
   const rect = element.getBoundingClientRect();
-  return (
-    rect.top >= 0 &&
-    rect.left >= 0 &&
-    rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
-    rect.right <= (window.innerWidth || document.documentElement.clientWidth)
-  );
+  const viewportWidth = window.innerWidth || document.documentElement.clientWidth;
+  const viewportHeight = window.innerHeight || document.documentElement.clientHeight;
+
+  // Calculate the minimum required visibility percentage for half of the element
+  const requiredVisibility = 0.50; // 50% of the element needs to be visible
+
+  // Calculate the visible width and height of the element
+  const visibleWidth = Math.min(rect.right, viewportWidth) - Math.max(rect.left, 0);
+  const visibleHeight = Math.min(rect.bottom, viewportHeight) - Math.max(rect.top, 0);
+
+  // Calculate the visibility percentage
+  const visibilityPercentage = (visibleWidth * visibleHeight) / (rect.width * rect.height);
+
+  // Return true if the visibility percentage is greater than or equal to the required visibility
+  return visibilityPercentage >= requiredVisibility;
 }
 
 // Function to add fade-in class to rows in viewport
@@ -227,13 +186,84 @@ function addFadeInClassToRows() {
   const rows = document.querySelectorAll('.row');
   rows.forEach(row => {
     if (isInViewport(row)) {
+      row.classList.remove('fade-out');
       row.classList.add('fade-in');
+    }else {
+      row.classList.remove('fade-in');
+      row.classList.add('fade-out');
     }
   });
 }
 
+function openPage(){
+    if(portfolioEntries == null){
+     fetch('portfolio_entries.json')
+        .then(response => response.json())
+        .then(data => {
+            // Set the value of portfolioEntries
+            portfolioEntries = data;
+
+            // Call the populateSlides and populateRows functions
+            populateSlides(portfolioEntries);
+            populateRows(portfolioEntries);
+            addFadeInClassToRows();
+
+            // Add the script after the portfolio entries are populated
+            const script = document.createElement('script');
+            script.type = 'text/javascript';
+            script.innerHTML = `
+                $('.center').slick({
+                    centerMode: true,
+                    centerPadding: '60px',
+                    slidesToShow: 3,
+                    dots: true,
+                    responsive: [
+                        {
+                            breakpoint: 768,
+                            settings: {
+                                arrows: true,
+                                centerMode: false,
+                                centerPadding: '40px',
+                                slidesToShow: 3
+                            }
+                        },
+                        {
+                            breakpoint: 480,
+                            settings: {
+                                arrows: true,
+                                centerMode: true,
+                                centerPadding: '40px',
+                                slidesToShow: 1
+                            }
+                        }
+                    ]
+                });
+
+                const sliders = document.querySelectorAll('.slideFromAbove');
+                            sliders.forEach(slider => {
+                              slider.classList.add('show');
+                            });
+            `;
+
+            // Append the script to the document body
+            document.body.appendChild(script);
+        })
+        .catch(error => console.error('Error fetching portfolio entries:', error));
+    }else{
+        // Call the populateSlides and populateRows functions
+        addFadeInClassToRows();
+    }
+
+
+}
+
+
+function isPageFullyScrolled() {
+  return (window.innerHeight + window.scrollY) >= document.body.offsetHeight;
+}
+
 // Add event listener for scroll to trigger the fade-in effect
 window.addEventListener('scroll', addFadeInClassToRows);
-// Trigger fade-in effect on page load
-window.addEventListener('load', addFadeInClassToRows);
+
+
 

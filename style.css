@@ -63,10 +63,21 @@ a {
 }
 
 .navbar {
-    position: absolute;
+    position: fixed;
+    z-index: 999;
     top: 0px;
     width: 100%;
-    padding: 30px 0px;
+    background-color: rgba(0, 0, 0, 0);
+    -webkit-transition: background-color 1000ms linear;
+    -ms-transition: background-color 1000ms linear;
+    transition: background-color 1000ms linear;
+}
+
+.navbar.opaque {
+    -webkit-transition: background-color 1000ms linear;
+    -ms-transition: background-color 1000ms linear;
+    transition: background-color 1000ms linear;
+  background-color: rgba(0, 0, 0, 0.3);
 }
 
 .navbar-brand {
@@ -93,24 +104,26 @@ a {
     letter-spacing: .2px;
 }
 
+nav .navbar-nav li a{
+  color: white !important;
+  }
+
 .nav-item .active {
     font-weight: 600;
     position: relative;
     font-color: white;
 }
 
-.nav-item .active::after {
-    position: absolute;
-    left: 0px;
-    right: 0px;
-    bottom: -2px;
-    content: '';
-    width: 8px;
-    height: 8px;
-    background-color: white;
-    border-radius: 100px;
-    margin: 0px auto;
-    transition: all 0.5s;
+.nav-item .active::after{
+      content: '';
+      position: absolute;
+      left: 50%;
+      width: 50%;
+      bottom: -2px;
+      height: 2px;
+      background-color: #28A9E0;
+      transform: translateX(-50%);
+      transition: width 0.3s ease;
 }
 
 /* Add backdrop-filter to create a frosted-glass effect */
@@ -122,6 +135,30 @@ a {
 .modal-header {
     border-bottom: 0px;
     padding-bottom: 0px;
+}
+
+.flex-container {
+    display: flex;
+    align-items: center;
+}
+
+#introText {
+    margin-right: 0.3em;
+}
+
+#roleCarousel {
+    color: #50BDD6;
+    overflow: hidden;
+}
+
+.vertical.carousel .carousel-item-next:not(.carousel-item-start),
+.vertical.carousel .active.carousel-item-end {
+    transform: translateY(100%);
+}
+
+.vertical.carousel .carousel-item-prev:not(.carousel-item-end),
+.vertical.carousel .active.carousel-item-start {
+    transform: translateY(-100%);
 }
 
 .main {
@@ -162,6 +199,12 @@ a {
     font-weight: 700;
     letter-spacing: -.4px;
     text-align: center;
+}
+
+.introduction {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
 }
 
 .portfolio .item {
@@ -234,7 +277,7 @@ a {
 .slide:hover .learn-more::after,
 .slide.slick-current:hover .learn-more::after,
 .portfolio .item:hover::after {
-  width: 100%;
+    width: 100%;
 }
 
 .learn-more {
@@ -256,13 +299,48 @@ a {
   }
 }
 
+@keyframes fade-out {
+  from {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+}
+
 .row.fade-in {
   opacity: 0;
   animation: fade-in 2s ease forwards;
 }
 
+.row.fade-out {
+  opacity: 1;
+  animation: fade-out 2s ease forwards;
+}
+
 .row {
     opacity: 0;
+}
+
+.col-lg-3 {
+    padding-top: 1rem!important;
+}
+
+.scroll-prompt {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.scroll-prompt.hidden {
+  opacity: 0;
+  visibility: hidden;
 }
 
 .slick-slide {
@@ -311,11 +389,10 @@ a {
     .navbar {
         backdrop-filter: blur(6px);
         -webkit-backdrop-filter: blur(6px);
-        padding: 20px 0px;
     }
 
     .navbar-collapse {
-        margin: 1rem 0rem 0rem 0rem;
+        margin: 0rem 0rem 0rem 0rem;
     }
 
     .navbar-toggler {
@@ -341,12 +418,6 @@ a {
         text-align: center;
     }
 
-    .nav-item .active::after {
-        bottom: 2px;
-        width: 6px;
-        height: 6px;
-    }
-
     .mb-btn {
         display: block!important;
     }
@@ -369,6 +440,10 @@ a {
     }
 
     .portfolio h1 {
+        font-size: 1.2rem;
+    }
+
+    .portfolio h2 {
         font-size: 1.2rem;
     }
 
@@ -447,12 +522,6 @@ a {
         text-align: unset;
     }
 
-    .nav-item .active::after {
-        bottom: -2px;
-        width: 8px;
-        height: 8px;
-    }
-
     .main h1 {
         line-height: normal;
     }
@@ -474,4 +543,106 @@ a {
     .mb-item {
         margin: 0px 0px 20px 0px;
     }
+}
+
+#cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  max-width: 916px;
+  width: calc(100% - 20px);
+}
+
+#cards:hover > .card::after {
+  opacity: 1;
+}
+
+.card {
+    backdrop-filter: blur(8px); /* Adjust the blur intensity as needed */
+    background-color: rgba(40, 169, 224, 0.1); /* Adjust the background color and transparency as needed */
+    border-radius: 10px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    color: white;
+    width: 2.5w;
+    transition: width 0.3s ease;
+    border: 1px solid rgba(40, 169, 224, 0.1)
+}
+.cardText {
+    display: flex;
+    align-items: center; /* Vertically center align items */
+    margin: 1.0em 1.7em 1.0em;
+    transition: padding-right 0.3s ease;
+}
+
+.card:hover .cardText {
+    padding-right: 0.5em;
+}
+
+.cardText i {
+    margin-right: 10px; /* Add spacing between the icon and text */
+}
+
+.w-10.card .arrow {
+    position: absolute;
+    top: 50%;
+    right: 8%;
+    transform: translate(100%, -50%);
+    opacity: 0;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    color: #28A9E0;
+}
+
+.w-10.card:hover .arrow {
+    opacity: 1;
+    transform: translate(0, -50%);
+}
+
+.card:hover::before {
+  opacity: 1;
+}
+
+.card::before,
+.card::after {
+  border-radius: 10px;
+  content: "";
+  height: 100%;
+  left: 0px;
+  opacity: 0;
+  position: absolute;
+  top: 0px;
+  transition: opacity 500ms;
+  width: 100%;
+}
+
+.card::before {
+  background: radial-gradient(
+    400px circle at var(--mouse-x) var(--mouse-y),
+    rgba(40, 169, 224, 0.06),
+    transparent 40%
+  );
+  z-index: 3;
+}
+
+.card::after {
+  background: radial-gradient(
+    400px circle at var(--mouse-x) var(--mouse-y),
+    rgba(40, 169, 224, 0.2),
+    transparent 40%
+  );
+  z-index: 1;
+}
+
+.card > .card-content {
+  background-color: var(--card-color);
+  border-radius: inherit;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  inset: 1px;
+  padding: 10px;
+  position: absolute;
+  z-index: 2;
 }
