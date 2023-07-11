@@ -126,6 +126,7 @@ nav .navbar-nav li a{
       transition: width 0.3s ease;
 }
 
+
 /* Add backdrop-filter to create a frosted-glass effect */
 .modal-content {
     backdrop-filter: blur(8px); /* Adjust the blur intensity as needed */
@@ -310,22 +311,50 @@ nav .navbar-nav li a{
   }
 }
 
-.row.fade-in {
+.fade-row.fade-in {
   opacity: 0;
   animation: fade-in 2s ease forwards;
 }
 
-.row.fade-out {
+.fade-row.fade-out {
   opacity: 1;
   animation: fade-out 2s ease forwards;
 }
 
-.row {
+.fade-row {
     opacity: 0;
 }
 
 .col-lg-3 {
     padding-top: 1rem!important;
+}
+
+
+
+#home, #portfolio {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.7s ease;
+}
+
+.move-out-left {
+  transform: translateX(100%);
+}
+
+.move-out {
+  transform: translateX(-100%);
+}
+
+.move-in {
+  transform: translateX(0);
+}
+
+.hidden {
+  transform: translateX(-100%);
+  visibility: hidden;
 }
 
 .scroll-prompt {

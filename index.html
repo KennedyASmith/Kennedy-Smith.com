@@ -93,7 +93,6 @@
                         </div>
                     </div>
                 </div>
-
                 <div class="mt-auto"></div>
             </div>
         </div>
@@ -110,17 +109,17 @@
             <div class="divider" style="height: 8rem;"></div>
 
 
-            <div class="row" id="portfolio-row-1">
+            <div class="row slideFromAbove" id="portfolio-row-1">
                 <h2>Logos</h2>
                 <!-- Automatically populated -->
             </div>
 
-            <div class="row mb-mt-5" id="portfolio-row-2">
+            <div class="row mb-mt-5 slideFromAbove" id="portfolio-row-2">
 
                 <!-- Automatically populated -->
             </div>
 
-            <div class="row mb-mt-5" id="portfolio-row-3">
+            <div class="row mb-mt-5 fade-row" id="portfolio-row-3">
 
                 <!-- Automatically populated -->
             </div>
@@ -139,6 +138,9 @@
     <script src="portfolio_populator.js"></script>
 
     <script>
+
+        initializePortfolio();
+
         $(document).ready(function() {
             setInterval(function() {
                 $('.carousel').carousel('next');
@@ -164,16 +166,22 @@
         function showHome() {
           document.getElementById("portfolioButton").classList.remove('active');
           document.getElementById("aboutMeButton").classList.add('active');
-          document.getElementById("home").style.display = "block";
-          document.getElementById("home").style.display = "block";
-          document.getElementById("portfolio").style.display = "none";
+
+          document.getElementById("home").classList.remove("move-out");
+          document.getElementById("home").classList.add("move-in");
+          document.getElementById("portfolio").classList.remove("move-in");
+          document.getElementById("portfolio").classList.add("move-out-left");
         }
 
         function showPortfolio() {
           document.getElementById("aboutMeButton").classList.remove('active');
           document.getElementById("portfolioButton").classList.add('active');
-          document.getElementById("home").style.display = "none";
-          document.getElementById("portfolio").style.display = "block";
+          document.getElementById("portfolio").style.setProperty("display", "inherit");
+
+          document.getElementById("home").classList.remove("move-in");
+          document.getElementById("home").classList.add("move-out");
+          document.getElementById("portfolio").classList.remove("move-out-left");
+          document.getElementById("portfolio").classList.add("move-in");
           openPage();
         }
     </script>

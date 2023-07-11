@@ -168,7 +168,7 @@ function isInViewport(element) {
   const viewportHeight = window.innerHeight || document.documentElement.clientHeight;
 
   // Calculate the minimum required visibility percentage for half of the element
-  const requiredVisibility = 0.50; // 50% of the element needs to be visible
+  const requiredVisibility = 0.10; // 50% of the element needs to be visible
 
   // Calculate the visible width and height of the element
   const visibleWidth = Math.min(rect.right, viewportWidth) - Math.max(rect.left, 0);
@@ -188,73 +188,73 @@ function addFadeInClassToRows() {
     if (isInViewport(row)) {
       row.classList.remove('fade-out');
       row.classList.add('fade-in');
-    }else {
+    } else {
       row.classList.remove('fade-in');
       row.classList.add('fade-out');
     }
   });
 }
 
+let isPopulated = false;
+
+function initializePortfolio(){
+    fetch('portfolio_entries.json')
+            .then(response => response.json())
+            .then(data => {
+                // Set the value of portfolioEntries
+                portfolioEntries = data;
+            })
+            .catch(error => console.error('Error fetching portfolio entries:', error));
+}
+
 function openPage(){
-    if(portfolioEntries == null){
-     fetch('portfolio_entries.json')
-        .then(response => response.json())
-        .then(data => {
-            // Set the value of portfolioEntries
-            portfolioEntries = data;
+    if(!isPopulated){
+        isPopulated = true;
+        populateSlides(portfolioEntries)
+        populateRows(portfolioEntries);
 
-            // Call the populateSlides and populateRows functions
-            populateSlides(portfolioEntries);
-            populateRows(portfolioEntries);
-            addFadeInClassToRows();
-
-            // Add the script after the portfolio entries are populated
-            const script = document.createElement('script');
-            script.type = 'text/javascript';
-            script.innerHTML = `
-                $('.center').slick({
-                    centerMode: true,
-                    centerPadding: '60px',
-                    slidesToShow: 3,
-                    dots: true,
-                    responsive: [
-                        {
-                            breakpoint: 768,
-                            settings: {
-                                arrows: true,
-                                centerMode: false,
-                                centerPadding: '40px',
-                                slidesToShow: 3
-                            }
-                        },
-                        {
-                            breakpoint: 480,
-                            settings: {
-                                arrows: true,
-                                centerMode: true,
-                                centerPadding: '40px',
-                                slidesToShow: 1
-                            }
+        // Add the script after the portfolio entries are populated
+        const script = document.createElement('script');
+        script.type = 'text/javascript';
+        script.innerHTML = `
+            $('.center').slick({
+                centerMode: true,
+                centerPadding: '60px',
+                slidesToShow: 3,
+                dots: true,
+                responsive: [
+                    {
+                        breakpoint: 768,
+                        settings: {
+                            arrows: true,
+                            centerMode: false,
+                            centerPadding: '40px',
+                            slidesToShow: 3
                         }
-                    ]
-                });
+                    },
+                    {
+                        breakpoint: 480,
+                        settings: {
+                            arrows: true,
+                            centerMode: true,
+                            centerPadding: '40px',
+                            slidesToShow: 1
+                        }
+                    }
+                ]
+            });
 
-                const sliders = document.querySelectorAll('.slideFromAbove');
-                            sliders.forEach(slider => {
-                              slider.classList.add('show');
-                            });
-            `;
+            const sliders = document.querySelectorAll('.slideFromAbove');
+                        sliders.forEach(slider => {
+                          slider.classList.add('show');
+                        });
+        `;
 
-            // Append the script to the document body
-            document.body.appendChild(script);
-        })
-        .catch(error => console.error('Error fetching portfolio entries:', error));
-    }else{
-        // Call the populateSlides and populateRows functions
+        // Append the script to the document body
+        document.body.appendChild(script);
+    }else {
         addFadeInClassToRows();
     }
-
-
 }
 
 
