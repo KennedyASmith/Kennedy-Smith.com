@@ -197,7 +197,7 @@ function addFadeInClassToRows() {
 }
 
 function initializePortfolio(){
-    fetch('portfolio_entries.json')
+    fetch('scripts/portfolio_entries.json')
             .then(response => response.json())
             .then(data => {
                 // Set the value of portfolioEntries
