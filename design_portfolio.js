@@ -3,6 +3,7 @@
 // Set the value of portfolioEntries
 let portfolioEntries = null;
 let initialized = true;
+let isPopulated = false;
 
 // Function to populate the portfolio slides
 function populateSlides(portfolioEntries) {
@@ -195,8 +196,6 @@ function addFadeInClassToRows() {
   });
 }
 
-let isPopulated = false;
-
 function initializePortfolio(){
     fetch('portfolio_entries.json')
             .then(response => response.json())
@@ -207,7 +206,7 @@ function initializePortfolio(){
             .catch(error => console.error('Error fetching portfolio entries:', error));
 }
 
-function openPage(){
+function openPortfolio(){
     if(!isPopulated){
         isPopulated = true;
         populateSlides(portfolioEntries)
@@ -257,13 +256,14 @@ function openPage(){
     }
 }
 
-
 function isPageFullyScrolled() {
   return (window.innerHeight + window.scrollY) >= document.body.offsetHeight;
 }
 
 // Add event listener for scroll to trigger the fade-in effect
 window.addEventListener('scroll', addFadeInClassToRows);
+
+initializePortfolio();
 
 
 
