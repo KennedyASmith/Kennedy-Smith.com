@@ -1,62 +1,62 @@
 [
   {
-    "image": "images/portfolio_img.png",
-    "name": "Project 1",
+    "image": "images/portfolio/alpine.png",
+    "name": "Alpine",
     "modalContent": "<h3>Project 1 Details</h3><p>Description of Project 1</p>"
   },
   {
-    "image": "images/portfolio_img.png",
-    "name": "Project 2",
+    "image": "images/portfolio/bear.png",
+    "name": "Bear",
     "modalContent": "<h3>Project 2 Details</h3><p>Description of Project 2</p>"
   },
   {
-    "image": "images/portfolio_img.png",
-    "name": "Project 3",
+    "image": "images/portfolio/berlin.png",
+    "name": "Berlin Finds",
     "modalContent": "<h3>Project 3 Details</h3><p>Description of Project 3</p>"
   },
   {
-    "image": "images/portfolio_img.png",
-    "name": "Project 4",
+    "image": "images/portfolio/baumshell.png",
+    "name": "Baumshell",
     "modalContent": "<h3>Project 4 Details</h3><p>Description of Project 4</p>"
   },
   {
-    "image": "images/portfolio_img.png",
-    "name": "Project 5",
+    "image": "images/portfolio/cruise.png",
+    "name": "Cruise",
     "modalContent": "<h3>Project 4 Details</h3><p>Description of Project 4</p>"
   },
   {
-    "image": "images/portfolio_img.png",
-    "name": "Project 6",
+    "image": "images/portfolio/dworld.png",
+    "name": "D-World",
     "modalContent": "<h3>Project 4 Details</h3><p>Description of Project 4</p>"
   },
   {
-    "image": "images/portfolio_img.png",
-    "name": "Project 7",
+    "image": " images/portfolio/jaunt.png ",
+    "name": "Jaunt",
     "modalContent": "<h3>Project 4 Details</h3><p>Description of Project 4</p>"
   },
   {
-    "image": "images/portfolio_img.png",
-    "name": "Project 8",
+    "image": "images/portfolio/fusion.png",
+    "name": "Fusion",
     "modalContent": "<h3>Project 4 Details</h3><p>Description of Project 4</p>"
   },
   {
-    "image": "images/portfolio_img.png",
-    "name": "Project 9",
+    "image": "images/portfolio/jaxwax.png",
+    "name": "Jax Wax",
     "modalContent": "<h3>Project 4 Details</h3><p>Description of Project 4</p>"
   },
   {
-    "image": "images/portfolio_img.png",
-    "name": "Project 10",
+    "image": "images/portfolio/flipgg.png",
+    "name": "Flip",
     "modalContent": "<h3>Project 4 Details</h3><p>Description of Project 4</p>"
   },
   {
-    "image": "images/portfolio_img.png",
-    "name": "Project 11",
+    "image": "images/portfolio/markx.png",
+    "name": "Mark-X",
     "modalContent": "<h3>Project 4 Details</h3><p>Description of Project 4</p>"
   },
   {
-    "image": "images/portfolio_img.png",
-    "name": "Project 12",
+    "image": "images/portfolio/smoothie.png",
+    "name": "Smoothie Blast",
     "modalContent": "<h3>Project 4 Details</h3><p>Description of Project 4</p>"
   }
 ]
