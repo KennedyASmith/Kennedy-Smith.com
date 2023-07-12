@@ -22,169 +22,174 @@
        <!-- Font awesome -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
         <!-- Title -->
-        <title>Kennedy - About Me</title>
+        <title>Kennedy - Home</title>
     </head>
     <body>
-    <!-- START OF NAVIGATION BAR -->
-    <nav class="navbar navbar-expand-lg">
-        <div class="container">
-            <a class="navbar-brand" href="/index.html">
-                <img src="images/Logo_Title.png" alt="">
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item ms-0">
-                        <a id="aboutMeButton" class="nav-link active" href="#" onclick="showHome()">About Me</a>
-                    </li>
-                    <li class="nav-item">
-                        <a id="portfolioButton" class="nav-link" aria-current="page" href="#" onclick="showPortfolio()">Design Portfolio</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-    <!-- END OF NAVIGATION BAR -->
 
-    <div id="home">
-        <div class="main d-flex">
-            <div class="container d-flex w-100 h-100 flex-column align-items-start"> <!-- Add "align-items-start" class -->
-                <div class="mb-auto"></div>
-                <div class="d-flex flex-row">
-                    <div class="text-left introduction">
-                        <h1><span class="hello">Hello!</span> I'm Kennedy.</h1>
-                        <h2>
-                            <div class="flex-container">
-                                <span id="introText">I'm a </span>
-                                <span id="roleCarousel" class="carousel vertical slide role-slide" data-ride="carousel">
+    <!-- Intro Animation -->
+    <div class="intro-container">
+        <div id="animated-logo-container">
+            <svg id="animatedLogo" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36.28 35.72">
+                <defs>
+                    <style>
+                      .cls-1 {
+                        fill: #FFF;
+                        stroke: #28A9E0;
+                        stroke-miterlimit: 20;
+                      }
+                    </style>
+                </defs>
+                <polygon class="cls-1" points="21.66 29.39 19.98 27.84 13.61 33.89 1.51 33.89 1.51 29.32 26.86 6.52 23.42 6.52 1.52 26.31 1.52 2.15 12.97 2.15 12.97 6.81 8.44 10.76 8.44 6.7 6.19 6.7 6.19 16.11 21.51 2.15 33.52 2.15 33.52 6.68 8.36 29.32 11.74 29.32 20.08 21.76 33.52 33.89 17.05 33.89 21.66 29.39"/>
+            </svg>
+            <h1 id="animatedName"><span style="font-weight: 900"> ENNEDY</span> <span style="font-weight: 400"> SMITH</span></h1>
+        </div>
+    </div>
+
+    <!-- Intro Animation JS -->
+    <script id="intro-animation">
+        // Intro animation
+        window.addEventListener('load', function() {
+
+          const container = document.getElementById('animated-logo-container');
+          const logoText = document.getElementById('animatedName');
+          container.style.height = `${logoText.offsetHeight}px`;
+
+          var polygon = document.querySelector('.cls-1');
+          polygon.addEventListener('animationend', function() {
+            polygon.classList.add('cls-fill');
+            var polygonTwo = document.querySelector('.cls-fill');
+            var pageWrapper = document.querySelector('.page-wrapper');
+            pageWrapper.style.setProperty('display', 'inherit');
+            polygonTwo.addEventListener('animationend', function () {
+                document.getElementById("animatedName").style.setProperty('max-width', '1000px');
+                setTimeout(function() {
+                       document.querySelector('.intro-container').classList.add('move-off-screen');
+                }, 2000);
+            });
+          });
+        });
+    </script>
+
+    <div class="page-wrapper">
+        <!-- START OF NAVIGATION BAR -->
+        <nav class="navbar navbar-expand-lg">
+            <div class="container">
+                <a class="navbar-brand" onclick="showHome()">
+                    <img src="images/Logo_Title.png" alt="">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item ms-0">
+                            <a id="aboutMeButton" class="nav-link active" href="#" onclick="showHome()">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a id="portfolioButton" class="nav-link" aria-current="page" href="#" onclick="showPortfolio()">Design Portfolio</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- END OF NAVIGATION BAR -->
+
+        <div id="home">
+            <div class="main d-flex">
+                <div class="container d-flex w-100 h-100 flex-column align-items-start"> <!-- Add "align-items-start" class -->
+                    <div class="mb-auto"></div>
+                    <div class="d-flex flex-row">
+                        <div class="text-left introduction">
+                            <h1><span class="hello">Hello!</span> I'm Kennedy.</h1>
+                            <h2>
+                                <div class="role-area">
+                                    <span id="introText">I'm a </span>
+                                    <span id="roleCarousel" class="carousel vertical slide role-slide" data-ride="carousel">
                                     <span class="carousel-inner">
-                                        <span class="carousel-item active">
-                                            software engineer.
-                                        </span>
-                                        <span class="carousel-item">
-                                            graphic designer.
-                                        </span>
-                                        <span class="carousel-item">
-                                            business owner.
+                                            <span class="carousel-item active">
+                                                software engineer.
+                                            </span>
+                                            <span class="carousel-item">
+                                                graphic designer.
+                                            </span>
+                                            <span class="carousel-item">
+                                                business owner.
+                                            </span>
                                         </span>
                                     </span>
-                                </span>
-                            </div>
-                        </h2>
+                                </div>
+                                <span class="role-mobile">
+                                            I'm a <span class="mobile-role"> Developer </span> and <span class="mobile-role">Designer.</span>
+                                            </span>
+                            </h2>
 
-                        <div class="w-100 mt-5 mb-spacing">
-                            <div id="cards">
-                                <div class="w-10 card">
-                                    <p class="cardText"><i class="fa-brands fa-github fa-2x"></i> Github <span class="arrow">❯</span></p>
-                                </div>
-                                <div class="w-10 card">
-                                    <p class="cardText"><i class="fa-brands fa-dribbble fa-2x"></i> Dribbble <span class="arrow">❯</span></p>
-                                </div>
-                                <div class="w-10 card">
-                                    <p class="cardText"><i class="fa-brands fa-discord fa-2x"></i> Discord <span class="arrow">❯</span></p>
-                                </div>
+                            <div class="w-100 mt-5 mb-spacing">
+                                <div id="cards">
+                                    <div class="w-10 card" onclick="window.open('https://github.com/KennedyASmith/', '_blank')">
+                                        <p class="cardText"><i class="fa-brands fa-github fa-2x"></i> Github <span class="arrow">❯</span></p>
+                                    </div>
+                                    <div class="w-10 card" onclick="window.open('https://dribbble.com/kennedysmith', '_blank')">
+                                        <p class="cardText" id="dribbble-card"><i class="fa-brands fa-dribbble fa-2x"></i> Dribbble <span class="arrow">❯</span></p>
+                                    </div>
+                                    <div class="w-10 card " id="discord-copy" data-toggle="tooltip" data-placement="bottom" title="Username Copied!" onclick="copyToClipboard('kenkode'); $('#discord-copy').tooltip('show')" onmouseleave="$('#discord-copy').tooltip('dispose')">
+                                        <p class="cardText"><i class="fa-brands fa-discord fa-2x"></i> Discord <i class="fa-solid fa-copy copy-symbol"></i></p>
+                                    </div>
 
-                                <div class="w-10 card" id="linked-in-card">
+                                    <div class="w-10 card" onclick="window.open('https://www.linkedin.com/in/kennedy-smith-271a15165/', '_blank')">
                                         <p class="cardText"><i class="fa-brands fa-linkedin fa-2x"></i> LinkedIn <span class="arrow">❯</span></p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
+                    <div class="mt-auto"></div>
                 </div>
-                <div class="mt-auto"></div>
             </div>
+
         </div>
 
-    </div>
+        <div id="portfolio" class="portfolio" style="display: none">
+            <div class="container">
+                <h1 class="slideFromAbove">Design Portfolio</h1>
+                <div class="slider center mt-3 slideFromAbove">
 
-    <div id="portfolio" class="portfolio" style="display: none">
-        <div class="container">
-            <h1 class="slideFromAbove">Design Portfolio</h1>
-            <div class="slider center mt-3 slideFromAbove">
+                </div>
 
+                <div class="divider" style="height: 8rem;"></div>
+
+
+                <div class="row slideFromAbove" id="portfolio-row-1">
+                    <h2>Logos</h2>
+                    <!-- Automatically populated -->
+                </div>
+
+                <div class="row mb-mt-5 slideFromAbove" id="portfolio-row-2">
+
+                    <!-- Automatically populated -->
+                </div>
+
+                <div class="row mb-mt-5 fade-row" id="portfolio-row-3">
+
+                    <!-- Automatically populated -->
+                </div>
             </div>
 
             <div class="divider" style="height: 8rem;"></div>
-
-
-            <div class="row slideFromAbove" id="portfolio-row-1">
-                <h2>Logos</h2>
-                <!-- Automatically populated -->
-            </div>
-
-            <div class="row mb-mt-5 slideFromAbove" id="portfolio-row-2">
-
-                <!-- Automatically populated -->
-            </div>
-
-            <div class="row mb-mt-5 fade-row" id="portfolio-row-3">
-
-                <!-- Automatically populated -->
-            </div>
         </div>
 
-        <div class="divider" style="height: 8rem;"></div>
     </div>
 
+    <!-- Boostrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
-
 
     <!-- Slick JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js" integrity="sha512-XtmMtDEcNz2j7ekrtHvOVR4iwwaD6o/FUJe6+Zq+HgcCsk3kj4uSQQR8weQ2QVj1o0Pk6PwYLohm206ZzNfubg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
-    <!-- Populator Script -->
-    <script src="portfolio_populator.js"></script>
+    <!-- Main JS -->
+    <script src="main.js"></script>
 
-    <script>
-
-        initializePortfolio();
-
-        $(document).ready(function() {
-            setInterval(function() {
-                $('.carousel').carousel('next');
-            }, 2000);
-        });
-
-        document.getElementById("cards").onmousemove = e => {
-          for(const card of document.getElementsByClassName("card")) {
-            const rect = card.getBoundingClientRect(),
-                  x = e.clientX - rect.left,
-                  y = e.clientY - rect.top;
-
-            card.style.setProperty("--mouse-x", `${x}px`);
-            card.style.setProperty("--mouse-y", `${y}px`);
-          };
-        }
-
-        const linkedCard = document.getElementById('linked-in-card');
-        linkedCard.addEventListener('click', function() {
-            window.open('https://www.linkedin.com/in/kennedy-smith-271a15165/', '_blank');
-        });
-
-        function showHome() {
-          document.getElementById("portfolioButton").classList.remove('active');
-          document.getElementById("aboutMeButton").classList.add('active');
-
-          document.getElementById("home").classList.remove("move-out");
-          document.getElementById("home").classList.add("move-in");
-          document.getElementById("portfolio").classList.remove("move-in");
-          document.getElementById("portfolio").classList.add("move-out-left");
-        }
-
-        function showPortfolio() {
-          document.getElementById("aboutMeButton").classList.remove('active');
-          document.getElementById("portfolioButton").classList.add('active');
-          document.getElementById("portfolio").style.setProperty("display", "inherit");
-
-          document.getElementById("home").classList.remove("move-in");
-          document.getElementById("home").classList.add("move-out");
-          document.getElementById("portfolio").classList.remove("move-out-left");
-          document.getElementById("portfolio").classList.add("move-in");
-          openPage();
-        }
-    </script>
+    <!-- Portfolio JS -->
+    <script src="design_portfolio.js"></script>
 
     </body>
 </html>

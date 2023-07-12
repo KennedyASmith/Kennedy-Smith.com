@@ -15,17 +15,95 @@ html {
     scroll-behavior: smooth;
 }
 
+
+.intro-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 24, 30, 1); /* Adjust the background color and opacity as needed */
+  z-index: 9999; /* Set the z-index to a higher value to ensure it appears above other elements */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: translateY(0);
+  transition: transform 1s ease;
+}
+.move-off-screen {
+  transform: translateY(100%);
+}
+
+#animated-logo-container{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#animatedLogo {
+    height: 100%;
+}
+
+#animatedName {
+    white-space: nowrap;
+    overflow: hidden;
+    margin-left: 1px;
+    overflow: hidden;
+    max-width: 0;
+    width: auto;
+    transition: max-width 2s ease;
+}
+
+.cls-1 {
+    position: absolute;
+    stroke-miterlimit: 10;
+    stroke-dasharray: 300;
+    stroke-dashoffset: 300;
+    fill-opacity: 0;
+    stroke-opacity: 1;
+    stroke-color: #28A9E0;
+    animation: draw 1.5s linear forwards;
+}
+
+
+.cls-fill {
+    stroke-miterlimit: 10;
+    stroke-dasharray: 0;
+    stroke-dashoffset: 0;
+    transform: translateX(0);
+    animation: fill 2s ease forwards;
+}
+
+@keyframes fill {
+  to {
+    stroke-opacity: 0;
+    fill-opacity: 1;
+    stroke-width: 0px;
+  }
+}
+
+@keyframes draw {
+    to {
+      stroke-dashoffset: 0;
+    }
+}
+
 body {
     font-family: 'Montserrat', sans-serif;
-    background-image: url("images/Background.png");
-
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-attachment: fixed;
     background-color: #00080A;
     height: 100vh;
     color: white;
+}
 
+.page-wrapper {
+    width: 100vw;
+    height: 100vh;
+    display: none;
+    background-image: url("images/Background.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
 }
 
 p {
@@ -83,12 +161,14 @@ a {
 .navbar-brand {
     padding: unset;
     margin: unset;
+    cursor: pointer;
 }
 
 .navbar-brand img {
     width: 40%;
     max-height: 20px;
 }
+
 
 .nav-item {
     margin: 0rem 0rem 0rem 3rem;
@@ -126,6 +206,11 @@ nav .navbar-nav li a{
       transition: width 0.3s ease;
 }
 
+.mobile-role {
+    font-weight: 600;
+    color: #50BDD6;
+}
+
 
 /* Add backdrop-filter to create a frosted-glass effect */
 .modal-content {
@@ -144,12 +229,19 @@ nav .navbar-nav li a{
 }
 
 #introText {
+    white-space: nowrap;
+    overflow: hidden;
     margin-right: 0.3em;
 }
 
 #roleCarousel {
     color: #50BDD6;
     overflow: hidden;
+}
+
+.role-area {
+  align-items: left;
+  overflow: hidden;
 }
 
 .vertical.carousel .carousel-item-next:not(.carousel-item-start),
@@ -311,12 +403,12 @@ nav .navbar-nav li a{
   }
 }
 
-.fade-row.fade-in {
+.fade-in {
   opacity: 0;
   animation: fade-in 2s ease forwards;
 }
 
-.fade-row.fade-out {
+.fade-out {
   opacity: 1;
   animation: fade-out 2s ease forwards;
 }
@@ -415,6 +507,15 @@ nav .navbar-nav li a{
 }
 
 @media (min-width: 250px) {
+
+    .role-area {
+        display: none;
+    }
+
+    #animatedName {
+        font-size: 2.0rem;
+    }
+
     .navbar {
         backdrop-filter: blur(6px);
         -webkit-backdrop-filter: blur(6px);
@@ -435,7 +536,7 @@ nav .navbar-nav li a{
     }
 
     .navbar-brand img {
-        max-height: 10px;
+        max-height: 35px;
     }
 
     .nav-item {
@@ -469,7 +570,7 @@ nav .navbar-nav li a{
     }
 
     .portfolio h1 {
-        font-size: 1.2rem;
+        font-size: 1.0rem;
     }
 
     .portfolio h2 {
@@ -500,6 +601,13 @@ nav .navbar-nav li a{
 }
 
 @media (min-width: 576px) {
+    .role-mobile {
+        display: none;
+    }
+    .role-area {
+        display: flex;
+    }
+
     .navbar-brand img {
         max-height: 50px;
     }
@@ -511,13 +619,20 @@ nav .navbar-nav li a{
     }
 
 
+
 }
 
 @media (min-width: 768px) {
+    .role-mobile {
+            display: none;
+    }
     .main h1 {
         font-size: 5rem;
         letter-spacing: -4px;
         line-height: 5rem;
+    }
+    .role-area {
+        display: flex;
     }
 
     .mt-5 {
@@ -542,6 +657,18 @@ nav .navbar-nav li a{
 }
 
 @media (min-width: 992px) {
+
+    .role-mobile {
+        display: none;
+    }
+
+    .role-area {
+        display: flex;
+    }
+    #animatedName {
+        font-size: 4.5rem;
+    }
+
     .nav-item {
         margin: 0rem 0rem 0rem 3rem;
     }
@@ -625,6 +752,21 @@ nav .navbar-nav li a{
 }
 
 .w-10.card:hover .arrow {
+    opacity: 1;
+    transform: translate(0, -50%);
+}
+
+.copy-symbol {
+    position: absolute;
+    top: 50%;
+    right: 1%;
+    transform: translate(100%, -50%);
+    opacity: 0;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    color: #28A9E0;
+}
+
+.w-10.card:hover .copy-symbol {
     opacity: 1;
     transform: translate(0, -50%);
 }
