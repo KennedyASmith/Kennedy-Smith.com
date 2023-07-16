@@ -23,11 +23,14 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
         <!-- Title -->
         <title>Kennedy - Home</title>
+        <
     </head>
+
     <body>
 
     <!-- Intro Animation -->
     <div class="intro-container">
+
         <div id="animated-logo-container">
             <svg id="animatedLogo" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36.28 35.72">
                 <defs>
@@ -45,16 +48,14 @@
         </div>
     </div>
 
-
     <!-- Intro Animation JS -->
     <script id="intro-animation">
         // Intro animation
         window.addEventListener('load', function() {
-
           const container = document.getElementById('animated-logo-container');
           const logoText = document.getElementById('animatedName');
           container.style.height = `${logoText.offsetHeight}px`;
-
+          container.style.visibility = 'unset';
           var polygon = document.querySelector('.cls-1');
           polygon.addEventListener('animationend', function() {
             polygon.classList.add('cls-fill');
@@ -71,6 +72,7 @@
         });
     </script>
 
+    <!-- Page -->
     <div class="page-wrapper">
         <!-- START OF NAVIGATION BAR -->
         <nav class="navbar navbar-expand-lg">
@@ -123,6 +125,7 @@
                                             I'm a <span class="mobile-role"> Developer </span> and <span class="mobile-role">Designer.</span>
                                             </span>
                             </h2>
+
 
                             <div class="w-100 mt-5 mb-spacing">
                                 <div id="cards">
