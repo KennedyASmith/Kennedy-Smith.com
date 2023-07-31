@@ -45,7 +45,7 @@
     "image": "images/portfolio/fusion.png",
     "name": "Fusion",
     "modalContent": "<h2 class=\"entryDescriptionTitle\">Description</h2><p class=\"entryDescription\">This concept aims to portray the Fusion Hosting company as innovative, reliable, and on the forefront of web hosting solutions.</p>",
-    "hexCodes": ["#ffffff", "#00ff00", "#fff700"]
+    "hexCodes": ["#ffffff", "#fff700"]
   },
   {
     "image": "images/portfolio/jaxwax.png",
