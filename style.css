@@ -15,28 +15,43 @@ html {
     scroll-behavior: smooth;
 }
 
-#colorButton {
-   backdrop-filter: blur(8px); /* Adjust the blur intensity as needed */
-   background-color: #001013; /* Adjust the background color and transparency as needed */
+.colorButton {
+   backdrop-filter: blur(8px);
+   background-color: #001013;
    border-radius: 10px;
-   cursor: pointer;
+   cursor: text;
    display: flex;
    flex-direction: column;
    flex-wrap: wrap;
    position: relative;
    color: white;
-   width: 1.0w;
+   width: 100%;
    transition: width 0.3s ease;
    border: 2px solid #022631;
    justify-content: left;
    flex-direction: row;
    overflow: hidden;
    font-weight: 500;
+   height: auto;
 }
 
-#colorButtonColor {
-    background-color: red;
-    width: 60px;
+.colorButtonColor {
+    width: 40px;
+}
+
+.entryDescriptionTitle {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.entryDescription {
+    margin-top: 5px;
+    margin-bottom: 25px;
+}
+
+.internalImagePreview {
+   background-color: #001013;
+    width: 100%;
 }
 
 #colorButtonText {

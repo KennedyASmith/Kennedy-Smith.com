@@ -10,8 +10,8 @@ function populateSlides(portfolioEntries) {
     const slider = document.querySelector('.slider');
 
     portfolioEntries.slice(-7).forEach(entry => {
-        const { image, name, modalContent } = entry;
-        const slide = createSlide(image, name, modalContent);
+        const { image, name, modalContent, hexCodes } = entry;
+        const slide = createSlide(image, name, modalContent, hexCodes);
 
         // Add event listeners for hover effect on slide elements
 
@@ -34,8 +34,8 @@ function populateRows(portfolioEntries) {
     const portfolioRow3 = document.getElementById('portfolio-row-3');
 
     portfolioEntries.forEach((entry, index) => {
-        const { image, name, modalContent } = entry;
-        const portfolioItem = createPortfolioItem(image, name, modalContent);
+        const { image, name, modalContent, hexCodes } = entry;
+        const portfolioItem = createPortfolioItem(image, name, modalContent, hexCodes);
 
         if (index < 4) {
             portfolioRow1.appendChild(portfolioItem);
@@ -48,7 +48,7 @@ function populateRows(portfolioEntries) {
 }
 
 // Function to create a portfolio slide element
-function createSlide(imageSrc, projectName, modalContent) {
+function createSlide(imageSrc, projectName, modalContent, hexCodes) {
     const slide = document.createElement('div');
     slide.classList.add('slide');
 
@@ -79,14 +79,14 @@ function createSlide(imageSrc, projectName, modalContent) {
 
     // Add click event listener to open modal
     item.addEventListener('click', () => {
-        openModal(projectName, modalContent);
+        openModal(projectName, modalContent, hexCodes, imageSrc);
     });
 
     return slide;
 }
 
 // Function to create a portfolio item element
-function createPortfolioItem(imageSrc, projectName, modalContent) {
+function createPortfolioItem(imageSrc, projectName, modalContent, hexCodes) {
     const colDiv = document.createElement('div');
     colDiv.classList.add('col-lg-3');
 
@@ -117,14 +117,14 @@ function createPortfolioItem(imageSrc, projectName, modalContent) {
 
     // Add click event listener to open modal
     itemDiv.addEventListener('click', () => {
-        openModal(projectName, modalContent);
+        openModal(projectName, modalContent, hexCodes, imageSrc);
     });
 
     return colDiv;
 }
 
 // Function to open the modal
-function openModal(projectName, modalContent) {
+function openModal(projectName, modalContent, hexCodes, imageSrc) {
     // Create the modal element
     const modal = document.createElement('div');
     modal.classList.add('modal');
@@ -137,7 +137,10 @@ function openModal(projectName, modalContent) {
                                 </button>
                             </div>
                             <div class="modal-body">
+                                <img src="${imageSrc}" draggable="false" alt="" class="internalImagePreview">
                                 ${modalContent}
+                                <h2>Colors</h2>
+                                ${generateColorDivs(hexCodes)}
                             </div>
                         </div>
                     </div>
@@ -162,6 +165,18 @@ function openModal(projectName, modalContent) {
     });
 }
 
+function generateColorDivs(hexCodes) {
+  // Helper function to generate div elements for each hex code
+  let index = 0;
+  return hexCodes.map(hexCode => `
+    <div class="colorButton" onclick="copyToClipboard('${hexCode}')">
+        <div class="colorButtonColor" style="background-color: ${hexCode}"></div>
+        <div id="colorButtonText"> ${hexCode}</div>
+        <i class="fa-solid fa-copy copy-symbol"></i>
+    </div>
+  `).join('');
+}
+
 // Function to check if an element is in the viewport
 function isInViewport(element) {
   const rect = element.getBoundingClientRect();
@@ -181,6 +196,7 @@ function isInViewport(element) {
   // Return true if the visibility percentage is greater than or equal to the required visibility
   return visibilityPercentage >= requiredVisibility;
 }
+
 
 // Function to add fade-in class to rows in viewport
 function addFadeInClassToRows() {

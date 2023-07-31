@@ -2,61 +2,73 @@
   {
     "image": "images/portfolio/alpine.png",
     "name": "Alpine",
-    "modalContent": "<div id=\"colorButton\"> <div id=\"colorButtonColor\"></div> <div id=\"colorButtonText\"> #001013</div></div>"
+    "modalContent": "<h2 class=\"entryDescriptionTitle\">Description</h2><p class=\"entryDescription\">The logo for \"Alpine Esports\" is designed in a dynamic and engaging mascot style, featuring a spirited mountain as the central character. The concept aims to encapsulate the essence of strength, and determination, all while representing the competitive and energetic nature of esports.</p>",
+    "hexCodes": ["#f6f6f7", "#58b3ce", "#0d3d54", "#312f30", "#1c1c1c"]
   },
   {
     "image": "images/portfolio/bear.png",
     "name": "Bear",
-    "modalContent": "<h3>Project 2 Details</h3><p>Description of Project 2</p>"
+    "modalContent": "<h2 class=\"entryDescriptionTitle\">Description</h2><p class=\"entryDescription\">The logo for \"BearVPN\" is a modern and sleek representation of a roaring bear, symbolizing strength, protection, and security. The concept aims to convey the idea that the VPN service provided by BearVPN is robust, reliable, and capable of safeguarding users' online activities.</p>",
+    "hexCodes": ["#ad7f42"]
   },
   {
     "image": "images/portfolio/berlin.png",
     "name": "Berlin Finds",
-    "modalContent": "<h3>Project 3 Details</h3><p>Description of Project 3</p>"
+    "modalContent": "<h2 class=\"entryDescriptionTitle\">Description</h2><p class=\"entryDescription\">The letter type logo for \"Berlin Finds\" clothing company creatively combines the letters \"B\" and \"F\" to form a cohesive and visually appealing design. The concept aims to evoke a sense of style, sophistication, and urban flair, reflecting the spirit of Berlin as a fashion-forward city with unique and trendy discoveries.</p>",
+    "hexCodes": ["#ffffff"]
   },
   {
     "image": "images/portfolio/baumshell.png",
     "name": "Baumshell",
-    "modalContent": "<h3>Project 4 Details</h3><p>Description of Project 4</p>"
+    "modalContent": "<h2 class=\"entryDescriptionTitle\">Description</h2><p class=\"entryDescription\">The logo for \"Baumshell Designs\" is a creative and playful representation of a blue turtle shell inspired by the Mario Brothers Nintendo games, with a fuse extending from it. The concept aims to combine elements of graphic design with a fun and nostalgic reference to video games, portraying the company as innovative, dynamic, and ready to make a creative impact.\n\n</p>",
+    "hexCodes": ["#b3defe", "#7ac6e5", "#5aa7ff"]
   },
   {
     "image": "images/portfolio/cruise.png",
     "name": "Cruise",
-    "modalContent": "<h3>Project 4 Details</h3><p>Description of Project 4</p>"
+    "modalContent": "<h2 class=\"entryDescriptionTitle\">Description</h2><p class=\"entryDescription\"> The \"Cruise\" Hosting Company logo is a minimalist and modern representation of a sleek cruise ship, symbolizing smooth and reliable hosting services. The icon is designed to be sleek, elegant, and minimalistic, reflecting the company's commitment to providing top-notch, cutting-edge hosting. The thin text adds a touch of elegance and refinement to the logo, complementing the simplicity of the cruise ship icon.</p>",
+    "hexCodes": ["#ffffff", "#3f90e0"]
   },
   {
     "image": "images/portfolio/dworld.png",
     "name": "D-World",
-    "modalContent": "<h3>Project 4 Details</h3><p>Description of Project 4</p>"
+    "modalContent": "<h2 class=\"entryDescriptionTitle\">Description</h2><p class=\"entryDescription\">The app icon for \"DWorld\" is a captivating and symbolic representation of Earth in the shape of the letter \"D\" against a dark blue night sky. The concept aims to communicate that \"DWorld\" offers an immersive virtual reality experience that transports users to explore and interact with the world from the comfort of their own space.</p>",
+    "hexCodes": ["#3ee04e", "#2cb6b4", "#5647ee", "#00357c", "#001b43"]
   },
   {
     "image": " images/portfolio/jaunt.png ",
     "name": "Jaunt",
-    "modalContent": "<h3>Project 4 Details</h3><p>Description of Project 4</p>"
+    "modalContent": "<h2 class=\"entryDescriptionTitle\">Description</h2><p class=\"entryDescription\">The logo for Jaunt.gg is designed to capture the essence of the thrill of gaming. The concept revolves around a bright, stylized representation of a \"Jaunt\" – a playful and carefree journey – while incorporating elements associated with gaming and gambling.</p>",
+    "hexCodes": ["#ffffff", "#4dad4d", "#c83c3c", "#51afed"]
   },
   {
     "image": "images/portfolio/fusion.png",
     "name": "Fusion",
-    "modalContent": "<h3>Project 4 Details</h3><p>Description of Project 4</p>"
+    "modalContent": "<h2 class=\"entryDescriptionTitle\">Description</h2><p class=\"entryDescription\">This concept aims to portray the Fusion Hosting company as innovative, reliable, and on the forefront of web hosting solutions.</p>",
+    "hexCodes": ["#ffffff", "#00ff00", "#fff700"]
   },
   {
     "image": "images/portfolio/jaxwax.png",
     "name": "Jax Wax",
-    "modalContent": "<h3>Project 4 Details</h3><p>Description of Project 4</p>"
+    "modalContent": "<h2 class=\"entryDescriptionTitle\">Description</h2><p class=\"entryDescription\">The logo for \"JaxWax\" car detailing company features a sleek and modern outline of a blue car, cleverly incorporating the name of the company. The concept aims to convey a sense of professionalism, quality, and sophistication in car care services.</p>",
+    "hexCodes": ["#ffffff", "#24a6c9"]
   },
   {
     "image": "images/portfolio/flipgg.png",
     "name": "Flip",
-    "modalContent": "<h3>Project 4 Details</h3><p>Description of Project 4</p>"
+    "modalContent": "<h2 class=\"entryDescriptionTitle\">Description</h2><p class=\"entryDescription\">The logo for \"Flip.gg\" is a modern and simplistic representation of a hand flipping a coin, symbolizing the thrill and excitement of online gambling. The concept aims to convey a sense of luck, chance, and anticipation, inviting users to experience the excitement of betting.</p>",
+    "hexCodes": ["#0bf4c7", "#47befc"]
   },
   {
     "image": "images/portfolio/markx.png",
     "name": "Mark-X",
-    "modalContent": "<h3>Project 4 Details</h3><p>Description of Project 4</p>"
+    "modalContent": "<h2 class=\"entryDescriptionTitle\">Description</h2><p class=\"entryDescription\">The logo for \"MarkX\" development services creatively incorporates an \"X\" built from two interconnected M's, representing the initials of the company name. Inside the \"X,\" two arrows point inwards, encouraging recognition of a one-stop-shop. The concept aims to convey a sense of innovative solutions and collaborative development services offered by \"MarkX.\"</p>",
+    "hexCodes": ["#ff6997", "#e85489", "#0000ff", "#ef104a"]
   },
   {
     "image": "images/portfolio/smoothie.png",
     "name": "Smoothie Blast",
-    "modalContent": "<h3>Project 4 Details</h3><p>Description of Project 4</p>"
+    "modalContent": "<h2 class=\"entryDescriptionTitle\">Description</h2><p class=\"entryDescription\">The logo for \"SmoothieBlast\" is a vibrant and energetic representation of a colorful smoothie bursting from a cup. The concept aims to convey the freshness, taste, and excitement of the smoothies offered by the restaurant, making it visually appealing and instantly recognizable.\n\n</p>",
+    "hexCodes": ["#ffffff", "#aaf33b", "#f28712", "#17bbe0", "#f46998"]
   }
 ]
